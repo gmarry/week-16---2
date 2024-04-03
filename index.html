@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/style/style.css" />
+    <title>Форма регистрации</title>
+  </head>
+  <body>
+    <section>
+      <h1>Форма регистрации</h1>
+      <form name="registration" class="registration" novalidate>
+        <!-- так как сами проверяем на валидность-->
+        <div>
+          <label for="name">Имя:</label> <br />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Введите имя"
+            required
+            pattern="[A-Za-zA-Яа-яЁё\s]{2,20}"
+            minlength="2"
+            maxlength="20"
+          /><br />
+          <span class="error-message" id="error-name"></span>
+        </div>
+        <div>
+          <label for="email">E-mail:</label><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@example.com"
+            required
+            pattern="/^[a-z0-9._%+-]+@[a-z0-9-]+\..+[a-z]{2,4}$/i"
+          />
+          <br />
+          <span class="error-message" id="error-email"></span>
+        </div>
+        <div>
+          <label for="age">Возраст:</label> <br />
+          <input
+            type="number"
+            id="age"
+            name="age"
+            placeholder="Введите возраст"
+            min="18"
+            max="116"
+            required
+          />
+          <br />
+          <span class="error-message" id="error-age"></span>
+        </div>
+        <div>
+          <label>Пол:</label> <br />
+          <input type="radio" id="male" name="gender" value="male" required />
+          <label for="male">Мужчина</label>
+          <input
+            type="radio"
+            id="female"
+            name="gender"
+            value="female"
+            required
+          />
+          <label for="female">Женщина</label>
+          <span class="error-message" id="error-gender"></span>
+        </div>
+        <div>
+          <label for="profession">Профессия:</label>
+          <select id="profession" name="profession" required>
+            <option value="" disabled selected>Выберите профессию</option>
+            <!--несет информационный характер-->
+            <option value="doctor">Доктор</option>
+            <option value="programmer">Программист</option>
+            <option value="teacher">Учитель</option>
+            <option value="designer">Дизайнер</option>
+            <option value="engineer">Инженер</option>
+            <option value="salesman">Продавец</option>
+            <option value="other">Другое</option>
+          </select>
+          <br />
+          <span class="error-message" id="error-profession"></span>
+        </div>
+        <div>
+          <label for="password">Пароль:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Введите пароль"
+            pattern="/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[!@#$%^&()])[A-Za-z\d!@#$%^&()]{8,20}$/"
+            minlength="8"
+            required
+          />
+          <br />
+          <span class="error-message" id="error-password"></span>
+        </div>
+        <div>
+          <label for="confirm-password">Повторите пароль:</label>
+          <input
+            id="confirm-password"
+            type="password"
+            name="confirm-password"
+            placeholder="Повторите пароль"
+            required
+            pattern="/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[!@#$%^&()])[A-Za-z\d!@#$%^&()]{8,20}$/"
+            minlength="8"
+          />
+          <br />
+          <span class="error-message" id="error-confirm-password"></span>
+        </div>
+        <div>
+          <input type="checkbox" id="agreement" name="agreement" required />
+          <label for="agreement">Я согласен на обработку данных</label><br />
+          <span class="error-message" id="error-agreement"></span>
+        </div>
+        <input type="submit" class="form__submit" value="Отправить" />
+      </form>
+    </section>
+    <script src="/assets/script/index.js"></script>
+  </body>
+</html>
